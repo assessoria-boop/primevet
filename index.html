@@ -6,7 +6,7 @@
   <title>Prime Vet Clínica Veterinária 24h – Noroeste, Brasília/DF</title>
   <meta name="description" content="Prime Vet Clínica Veterinária 24 horas no Noroeste de Brasília/DF. Consultas, cirurgias, internação, laboratório e emergências. 4.8 no Google desde 2010." />
   <link rel="icon" type="image/webp" href="logo.webp" />
-  <link rel="preload" as="image" href="logo.webp" fetchpriority="high" type="image/webp" />
+  <link rel="preload" as="image" href="hero-desktop.webp" fetchpriority="high" type="image/webp" />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
@@ -137,34 +137,32 @@
 
     /* —— HERO —— */
     .hero {
-      min-height: 100svh;
+      width: 100%;
+      aspect-ratio: 1672 / 941;
+      min-height: 520px;
+      max-height: 720px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 72px 24px 56px;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 0 7%;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: white;
-      z-index: 0;
+      background: #eef2ef url('hero-desktop.webp') no-repeat center center / cover;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 620px;
+      max-width: 540px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .hero-logo {
+      display: none;
       width: 130px; height: 130px;
       border-radius: 50%;
       overflow: hidden;
@@ -209,9 +207,9 @@
       font-weight: 500;
       color: var(--cinza);
       line-height: 1.5;
-      max-width: 480px;
+      max-width: 420px;
       margin-bottom: 28px;
-      text-align: center;
+      text-align: left;
     }
 
     .br-mobile { display: none; }
@@ -267,6 +265,8 @@
       color: var(--cinza);
       font-weight: 500;
       text-align: center;
+      width: 100%;
+      max-width: 420px;
     }
 
     /* —— STATS —— */
@@ -663,13 +663,21 @@
       nav { padding: 12px 20px; }
       nav .nav-badge { display: none; }
 
-      .hero { padding: 52px 20px 44px; }
+      .hero {
+        aspect-ratio: auto;
+        min-height: 100svh;
+        max-height: none;
+        background: #eef2ef url('hero-mobile.webp') no-repeat center 55% / cover;
+        align-items: flex-start;
+        justify-content: center;
+        text-align: center;
+        padding: 9svh 20px 40px;
+      }
+      .hero-content { max-width: 100%; align-items: center; }
       .hero h1 { font-size: 40px; letter-spacing: -1px; }
-      .hero-sub { font-size: 14px; }
+      .hero-sub { font-size: 14px; text-align: center; margin-left: auto; margin-right: auto; }
       .br-mobile { display: inline; }
-      .hero-logo { width: 100px; height: 100px; }
       .hero-btns { max-width: 100%; }
-      .loc-texto { white-space: nowrap; font-size: 11px; padding: 7px 14px; }
 
       .stats { padding: 0 20px; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -753,7 +761,6 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-logo">
       <img src="logo.webp" alt="Prime Vet Clínica Veterinária" decoding="async" loading="eager" />
