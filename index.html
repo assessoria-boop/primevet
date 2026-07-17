@@ -70,10 +70,10 @@
 
     /* —— NAV —— */
     nav {
-      display: flex;
+      display: none;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 48px;
+      justify-content: center;
+      padding: 12px 20px;
       border-bottom: 1px solid var(--borda);
       background: var(--branco);
       position: sticky;
@@ -706,8 +706,7 @@
 
     /* —— RESPONSIVO —— */
     @media (max-width: 900px) {
-      nav { padding: 12px 20px; }
-      nav .nav-badge { display: none; }
+      nav { display: flex; padding: 12px 20px; }
 
       .hero {
         aspect-ratio: auto;
@@ -789,6 +788,15 @@
   <span class="topo-dot"></span>
   Atendimento Disponível <strong>Agora</strong>
 </div>
+
+<!-- CABEÇALHO MOBILE (somente logo) -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circulo">
+      <img src="logo.webp" alt="Prime Vet" loading="eager" decoding="async" />
+    </div>
+  </a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
