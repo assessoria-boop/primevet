@@ -162,7 +162,7 @@
     }
 
     .hero-logo {
-      display: none;
+      display: block;
       width: 130px; height: 130px;
       border-radius: 50%;
       overflow: hidden;
@@ -706,23 +706,25 @@
 
     /* —— RESPONSIVO —— */
     @media (max-width: 900px) {
-      nav { display: flex; padding: 12px 20px; }
+      nav { display: none; }
 
       .hero {
         aspect-ratio: auto;
         min-height: 100svh;
         max-height: none;
-        background: #eef2ef url('hero-mobile.webp') no-repeat center 55% / cover;
+        background: #eef2ef url('hero-mobile.webp') no-repeat center 42% / cover;
         align-items: flex-start;
         justify-content: center;
         text-align: center;
         padding: 9svh 20px 40px;
       }
       .hero-content { max-width: 100%; align-items: center; }
+      .hero-logo { width: 84px; height: 84px; margin-bottom: 14px; }
       .hero h1 { font-size: 42px; letter-spacing: -1.5px; white-space: nowrap; }
       .hero-sub { font-size: clamp(11px, 3.4vw, 14px); text-align: center; white-space: nowrap; margin-left: auto; margin-right: auto; }
       .br-mobile { display: none; }
       .hero-btns { max-width: 100%; }
+      .hero-resposta { display: none; }
 
       .stats { padding: 0 20px; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
