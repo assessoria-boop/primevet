@@ -292,46 +292,29 @@
     /* —— STATS —— */
     .stats {
       background: var(--gradiente);
-      padding: 28px 0;
-      overflow: hidden;
+      padding: 28px 48px;
     }
 
-    .stats-marquee {
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-    }
-
-    .stats-track {
-      display: flex;
-      width: max-content;
-      animation: stats-scroll 24s linear infinite;
-      will-change: transform;
-    }
-    .stats-marquee:hover .stats-track { animation-play-state: paused; }
-
-    @keyframes stats-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-25%); }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: stretch;
     }
 
     .stat {
-      flex: 0 0 auto;
-      min-width: 220px;
       text-align: center;
-      padding: 8px 28px;
+      padding: 8px 16px;
       border-right: 1px solid rgba(255,255,255,0.18);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
-    .stat-num   { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -1px; white-space: nowrap; }
-    .stat-label { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; font-weight: 500; white-space: nowrap; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .stats-track { animation: none; }
-    }
+    .stat:last-child { border-right: none; }
+    .stat-num   { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -1px; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; font-weight: 500; }
 
     /* —— DEPOIMENTOS —— */
     .sec-depoi {
@@ -426,17 +409,53 @@
     .depoi-imagens .carrossel-wrap { margin-top: 0; }
 
     .depoi-conteudo { text-align: left; }
-
-    .depoi-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 48px;
-    }
-    .depoi-header .depoi-titulo-topo { font-size: 34px; margin-bottom: 12px; }
-    .depoi-sub-topo {
-      font-size: 16px;
+    .depoi-titulo { font-size: 32px; margin-bottom: 14px; }
+    .depoi-sub {
+      font-size: 15px;
       color: var(--cinza);
       line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 460px;
+    }
+
+    .depoi-stat-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--cinza-claro);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+    .depoi-stat-icone {
+      width: 52px; height: 52px;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .depoi-stat-icone svg {
+      width: 24px; height: 24px;
+      stroke: var(--marca); fill: none; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .depoi-stat-top { display: flex; align-items: center; gap: 10px; }
+    .depoi-stat-num { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+    .depoi-stars { color: #F59E0B; font-size: 16px; letter-spacing: 2px; }
+    .depoi-stat-titulo { font-size: 15px; font-weight: 700; margin-top: 4px; }
+    .depoi-stat-sub { font-size: 12.5px; color: var(--cinza); margin-top: 2px; }
+
+    .depoi-verificado {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--marca-claro);
+      margin-bottom: 26px;
+    }
+    .depoi-verificado svg {
+      width: 18px; height: 18px;
+      stroke: var(--verde-wpp); fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
     }
 
     .depoi-features { display: flex; flex-direction: column; gap: 18px; }
@@ -702,15 +721,18 @@
       .hero-content { max-width: 100%; align-items: center; }
       .hero-logo { width: 84px; height: 84px; margin-bottom: 14px; }
       .hero h1 { font-size: 42px; letter-spacing: -1.5px; white-space: nowrap; }
-      .hero-sub { font-size: clamp(12px, 3.6vw, 15px); text-align: center; white-space: normal; margin-left: auto; margin-right: auto; }
-      .br-mobile { display: inline; }
+      .hero-sub { font-size: clamp(11px, 3.4vw, 14px); text-align: center; white-space: nowrap; margin-left: auto; margin-right: auto; }
+      .br-mobile { display: none; }
       .hero-btns { max-width: 100%; }
       .hero-resposta { display: none; }
 
-      .stats { padding: 20px 0; }
-      .stat { min-width: 0; padding: 6px 24px; }
+      .stats { padding: 0 20px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 20px 12px; border-right: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-bottom: none; }
+      .stat:nth-child(4) { border-right: none; border-bottom: none; }
       .stat-num { font-size: 22px; }
-      .stats-track { animation-duration: 18s; }
 
       .sec-depoi { padding: 56px 0; }
       .sec-depoi-inner { padding: 0 20px; text-align: center; }
@@ -720,9 +742,9 @@
       .depoi-grid { grid-template-columns: 1fr; gap: 36px; }
       .depoi-imagens { order: 0; }
       .depoi-conteudo { order: 1; text-align: center; margin-top: 4px; }
-      .depoi-header { margin-bottom: 32px; }
-      .depoi-header .depoi-titulo-topo { font-size: 26px; }
-      .depoi-sub-topo { font-size: 14.5px; }
+      .depoi-sub { margin-left: auto; margin-right: auto; }
+      .depoi-stat-card { max-width: 440px; margin-left: auto; margin-right: auto; text-align: left; }
+      .depoi-verificado { justify-content: center; }
       .depoi-features { max-width: 440px; margin: 0 auto; text-align: left; }
 
       .sec { padding: 56px 20px; text-align: center; }
@@ -787,9 +809,9 @@
     <p class="hero-clinica-nome">Prime Vet</p>
     <h1>
       Clínica Veterinária<br />
-      <span class="h1-destaque">24h</span> no Noroeste
+      <span class="h1-destaque">24h</span> em Brasília
     </h1>
-    <p class="hero-sub">Atendimento rápido e seguro.<br class="br-mobile" /> Estamos na Q.510 &ndash; Edifício Sunset</p>
+    <p class="hero-sub">Cuidamos do seu Pet com<br class="br-mobile" /> Atendimento rápido e Seguro!</p>
     <div class="hero-btns">
       <a href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." class="btn-wpp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -804,74 +826,24 @@
   </div>
 </div>
 
-<!-- STATS (rolagem automática) -->
+<!-- STATS -->
 <div class="stats">
-  <div class="stats-marquee">
-    <div class="stats-track">
-      <div class="stat">
-        <div class="stat-num">4.8</div>
-        <div class="stat-label">No Google</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Emergências</div>
-        <div class="stat-label">Atendimento imediato</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">24 Horas</div>
-        <div class="stat-label">Todos os dias</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Desde 2010</div>
-        <div class="stat-label">Atendendo pets</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4.8</div>
-        <div class="stat-label">No Google</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Emergências</div>
-        <div class="stat-label">Atendimento imediato</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">24 Horas</div>
-        <div class="stat-label">Todos os dias</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Desde 2010</div>
-        <div class="stat-label">Atendendo pets</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4.8</div>
-        <div class="stat-label">No Google</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Emergências</div>
-        <div class="stat-label">Atendimento imediato</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">24 Horas</div>
-        <div class="stat-label">Todos os dias</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Desde 2010</div>
-        <div class="stat-label">Atendendo pets</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4.8</div>
-        <div class="stat-label">No Google</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Emergências</div>
-        <div class="stat-label">Atendimento imediato</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">24 Horas</div>
-        <div class="stat-label">Todos os dias</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="font-size:18px;letter-spacing:0;">Desde 2010</div>
-        <div class="stat-label">Atendendo pets</div>
-      </div>
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">4.8</div>
+      <div class="stat-label">No Google</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+90</div>
+      <div class="stat-label">tutores satisfeitos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="font-size:18px;letter-spacing:0;">24 Horas</div>
+      <div class="stat-label">Todos os dias</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="font-size:18px;letter-spacing:0;">Desde 2010</div>
+      <div class="stat-label">Atendendo pets</div>
     </div>
   </div>
 </div>
@@ -879,10 +851,6 @@
 <!-- DEPOIMENTOS -->
 <div class="sec-depoi">
   <div class="sec-depoi-inner">
-   <div class="depoi-header">
-     <h2 class="sec-titulo depoi-titulo-topo">Depoimentos reais do <span>Google</span></h2>
-     <p class="depoi-sub-topo">Veja o que os tutores de Brasília dizem sobre nosso atendimento!</p>
-   </div>
    <div class="depoi-grid">
     <div class="depoi-imagens">
     <div class="carrossel-wrap">
@@ -928,6 +896,28 @@
     </div>
 
     <div class="depoi-conteudo">
+      <span class="sec-tag">Depoimentos reais</span>
+      <h2 class="sec-titulo depoi-titulo">Quem <span>confia na Prime Vet,</span> recomenda.</h2>
+      <p class="depoi-sub">Veja o que os tutores de Brasília dizem sobre o atendimento, o cuidado e a estrutura 24h para seus pets.</p>
+
+      <div class="depoi-stat-card">
+        <div class="depoi-stat-icone">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="depoi-stat-top">
+            <span class="depoi-stat-num">+90</span>
+            <span class="depoi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <div class="depoi-stat-titulo">Avaliações reais</div>
+          <div class="depoi-stat-sub">Experiência aprovada por tutores &middot; Nota 4,8</div>
+        </div>
+      </div>
+
+      <div class="depoi-verificado">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        Avaliação verificada &middot; Google Reviews
+      </div>
 
       <div class="depoi-features">
         <div class="depoi-feature">
