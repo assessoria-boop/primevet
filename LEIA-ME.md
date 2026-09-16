@@ -41,7 +41,7 @@ Os originais da marca ficam em `C:\Users\Gaabs\brand-assets\prime-vet` (as fotos
 ## Integrações
 - **WhatsApp**: `wa.me/5561998324760`, com a mensagem "Olá encontrei vocês pelo Google, gostaria de atendimento." (a mesma da página anterior).
 - **Google Tag Manager**: `GTM-WGTJFJVS` (o mesmo da página anterior).
-- **Microsoft Clarity**: **pendente**. A página anterior não tinha Clarity. No `<head>`, preencha `var CLARITY_ID = '';` com o ID do projeto.
+- **Microsoft Clarity**: `yjavigcci0`.
 - **Mapa**: o mesmo embed da página anterior, carregado só quando a seção de contato se aproxima da tela.
 
 GTM e Clarity carregam na primeira interação (toque, rolagem, mouse ou tecla), fora do caminho do carregamento.
