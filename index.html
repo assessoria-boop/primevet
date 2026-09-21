@@ -851,6 +851,29 @@
       .rv.vis, .hero-cao, .hero-gigante, .serv-pill, .wpp-float::before { animation: none; }
       .btn-wpp::after { display: none; }
     }
+    /* ── CARDS CAES E GATOS: foto redonda com etiqueta e titulo abaixo (pedido de 21/09/2026) ── */
+    .pc { height: auto; display: flex; flex-direction: column; align-items: center; padding: 78px 24px 34px; }
+    .pc--caes, .pc--gatos { background: none; }
+    .pc-img { position: relative; inset: auto; z-index: 1; width: 250px; height: 250px; flex-shrink: 0; border-radius: 50%; border: 6px solid #E4E4E7; box-shadow: 0 16px 36px rgba(17,17,17,.16); }
+    /* palavra gigante no grafite da marca, centralizada: a metade de cima aparece acima da foto e a de baixo passa por tras do circulo */
+    .pc-gigante, .pc--gatos .pc-gigante {
+      z-index: 0; left: 50%; right: auto; top: -8px; transform: translateX(-50%); white-space: nowrap;
+      background: linear-gradient(180deg, rgba(63,63,70,.9) 40%, rgba(63,63,70,0) 78%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .pc-vidro, .pc--caes .pc-vidro, .pc--gatos .pc-vidro { position: relative; inset: auto; z-index: 1; height: auto; align-items: center; justify-content: flex-start; gap: 14px; margin-top: 26px; padding: 0; background: none; border: 0; }
+    .pc-tag { align-self: center; border-color: var(--c-muted); color: var(--c-muted); }
+    .pc-baixo { justify-content: center; }
+    .pc-h3 { align-items: center; text-align: center; color: var(--c-ink); }
+    .pc:hover { box-shadow: none; }
+    .pc:hover .pc-img { transform: scale(1.04); }
+    .pc:hover .pc-vidro { transform: none; }
+    @media (min-width: 1024px) {
+      .pc { height: 602px; justify-content: flex-start; padding: 112px 40px 48px; }
+      .pc-img { width: 320px; height: 320px; border-width: 8px; }
+      .pc-gigante, .pc--gatos .pc-gigante { top: -34px; right: auto; }
+      .pc-vidro, .pc--caes .pc-vidro, .pc--gatos .pc-vidro { margin-top: 32px; gap: 16px; padding: 0; }
+    }
   </style>
 </head>
 <body>
@@ -988,7 +1011,6 @@
           <h3><span>Cirurgias e</span><span>centro cirúrgico</span></h3>
           <div class="dc-row">
             <p>Leque abrangente de cirurgias para o bem-estar e a saúde contínua do seu pet.</p>
-            <a class="dc-seta" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre cirurgias pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
           </div>
         </div>
       </div>
@@ -999,9 +1021,6 @@
         <span class="dc-tag">Diagnóstico rápido</span>
         <div class="dc-main">
           <h3><span>Laboratório</span><span>próprio</span></h3>
-          <div class="dc-row">
-            <a class="dc-seta" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre o laboratório pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
-          </div>
         </div>
       </div>
     </article>
@@ -1011,9 +1030,6 @@
         <span class="dc-tag">Cães e gatos</span>
         <div class="dc-main">
           <h3><span>Consultas</span><span>24 horas</span></h3>
-          <div class="dc-row">
-            <a class="dc-seta" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre consultas pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
-          </div>
         </div>
       </div>
     </article>
@@ -1040,7 +1056,6 @@
         <span class="sr-nome">Consultas</span>
         <span class="sr-desc">Atendimento humano e qualificado, a qualquer hora.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv aberto padrao">
       <span class="sr-midia"><img style="object-position:50% 36%" src="img/servico-emergencia.webp?v=3" width="600" height="1066" alt="Equipe da Prime Vet em atendimento de emergência" loading="lazy" decoding="async" /></span>
@@ -1049,7 +1064,6 @@
         <span class="sr-nome">Emergência 24h</span>
         <span class="sr-desc">Atendida na hora, inclusive madrugadas e feriados.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img class="foco-cirurgia" src="img/destaque-cirurgia.webp?v=2" width="600" height="800" alt="Equipe da Prime Vet em uma cirurgia" loading="lazy" decoding="async" /></span>
@@ -1058,7 +1072,6 @@
         <span class="sr-nome">Cirurgias</span>
         <span class="sr-desc">Cirurgias para o bem-estar e a saúde do seu pet.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img class="foco-baixo" src="img/destaque-consultas.webp?v=2" width="600" height="800" alt="Veterinário da Prime Vet examinando um buldogue" loading="lazy" decoding="async" /></span>
@@ -1067,7 +1080,6 @@
         <span class="sr-nome">Internação</span>
         <span class="sr-desc">Monitoramento contínuo para a melhor recuperação.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img style="object-position:50% 25%" src="img/laboratorio.webp?v=2" width="600" height="612" alt="Pastor-de-shetland de gravata na Prime Vet" loading="lazy" decoding="async" /></span>
@@ -1076,7 +1088,6 @@
         <span class="sr-nome">Laboratório</span>
         <span class="sr-desc">Diagnósticos rápidos e precisos, sem sair daqui.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
   </div>
 </section>
@@ -1090,7 +1101,6 @@
       <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>Atendimento humanizado</span>
       <div class="pc-baixo">
         <h3 class="pc-h3"><span>Respeito, paciência</span><span>e dedicação</span></h3>
-        <a class="pc-mais" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais <svg class="i"><use href="#i-seta"/></svg></a>
       </div>
     </div>
   </article>
@@ -1101,7 +1111,6 @@
       <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>Desde 2010</span>
       <div class="pc-baixo">
         <h3 class="pc-h3"><span>Cuidando de cães e</span><span>gatos desde 2010</span></h3>
-        <a class="pc-mais" href="https://wa.me/5561998324760?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais <svg class="i"><use href="#i-seta"/></svg></a>
       </div>
     </div>
   </article>
