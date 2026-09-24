@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/layout-premium(.*)", "destination": "/", "permanent": false }
+  ]
+}
