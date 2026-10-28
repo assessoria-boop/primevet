@@ -509,6 +509,8 @@
       gap: 16px;
     }
 
+    .servico-card:last-child:nth-child(3n+1) { grid-column: 2; }
+
     .servico-card {
       background: var(--cinza-claro);
       border-radius: 20px;
@@ -751,6 +753,8 @@
       .sec-titulo { font-size: 28px; }
 
       .servicos-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .servico-card:last-child:nth-child(3n+1) { grid-column: auto; }
+      .servico-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
       .servico-card { text-align: center; }
       .servico-icone { margin-left: auto; margin-right: auto; }
 
@@ -777,6 +781,7 @@
 
     @media (max-width: 420px) {
       .servicos-grid { grid-template-columns: 1fr; }
+      .servico-card:last-child:nth-child(odd) { grid-column: auto; }
     }
   </style>
 </head>
@@ -971,6 +976,13 @@
       </div>
       <h3>Cirurgias Especializadas</h3>
       <p>Leque abrangente de cirurgias para garantir o bem-estar e a saúde contínua do seu pet.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-icone">
+        <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+      </div>
+      <h3>Dermatologia</h3>
+      <p>Diagnóstico e tratamento de alergias, coceiras, queda de pelo e doenças de pele, com acompanhamento especializado.</p>
     </div>
     <div class="servico-card">
       <div class="servico-icone">
